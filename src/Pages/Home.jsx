@@ -1,24 +1,38 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchData } from '../../utils/apiCall';
-import { setAllData } from '../store/slices/allDataSlice';
+import { setAllData, setViewToggleLoader } from '../store/slices/allDataSlice';
 import Sidebar from './Sidebar';
 import MainContent from './MainContent';
-
 
 export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     async function getData() {
+      dispatch(setViewToggleLoader(true));
+
       try {
-        const response = await fetchData('https://jsonplaceholder.typicode.com/posts', 'get');
-        if (response?.data) dispatch(setAllData(response.data));
-        else throw new Error('API did not return data');
+        const response = await fetchData(
+          'https://jsonplaceholder.typicode.com/posts',
+          'get'
+        );
+
+        if (response?.data) {
+          dispatch(setAllData(response.data));
+        } else {
+          throw new Error('API did not return data');
+        }
       } catch (error) {
         console.error('Error fetching API:', error);
+      } finally {
+        setTimeout(()=>{
+
+          dispatch(setViewToggleLoader(false)); // ✅ 
+        },5000)
       }
     }
+
     getData();
   }, [dispatch]);
 

@@ -14,10 +14,10 @@ export default function Listview({ data, fun,index }) {
         />
 
         <div className='flex-grow'>
-          <h4 className='text-lg font-bold  w-[12rem] truncate'>
+          <h4 className='text-lg font-bold  w-[78%]  truncate'>
             <abbr className="no-underline" title={data.title}>{data.title}</abbr>
           </h4>
-          <p className='text-[1rem] w-[12rem] truncate'>
+          <p className='text-[1rem] w-[30rem] truncate'>
             <abbr className="no-underline" title={data.body}>{data.body}</abbr>
           </p>
           <p className='text-sm opacity-55'>{time}</p>

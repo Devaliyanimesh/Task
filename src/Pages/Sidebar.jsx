@@ -10,7 +10,7 @@ export default function Sidebar() {
   const toggleView = (newType) => {
     dispatch(setViewToggleLoader(true));
     dispatch(setListView(newType));
-    setTimeout(() => dispatch(setViewToggleLoader(false)), 3000);
+    setTimeout(() => dispatch(setViewToggleLoader(false)), 1000);
   };
 
   return (
