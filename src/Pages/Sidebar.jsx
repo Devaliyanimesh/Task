@@ -14,7 +14,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className={`w-fit z-40 ${!feedbackFormDrawer ? 'shadow-lg' : ''} bg-[#e3eaf0] rounded-md px-[3rem] pt-[2.5rem]`}>
+    <aside className={`w-fit z-40 ${!feedbackFormDrawer ? 'shadow-2xl' : ''} bg-[#e3eaf0] rounded-2xl px-[3rem] pt-[2.5rem]`}>
       <div className="flex flex-col gap-[1.5rem]">
         {/* User Info */}
         <div className="bg-white flex gap-4 items-center px-4 py-2 rounded-lg shadow-lg">

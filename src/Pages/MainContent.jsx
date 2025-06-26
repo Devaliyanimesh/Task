@@ -26,10 +26,10 @@ export default function MainContent() {
       ) : (
         <>
           <div className={`${viewType === 'listView' ? 'flex flex-col gap-4' : 'flex flex-wrap gap-4'} ${feedbackFormDrawer ? 'blur-lg' : ''}`}>
-            {currentData.map((item) =>
+            {currentData.map((item,index) =>
               viewType === 'listView'
-                ? <Listview key={item.id} data={item} fun={() => dispatch(removeElement(item.id))} />
-                : <Cardview key={item.id} data={item} fun={() => dispatch(removeElement(item.id))} />
+                ? <Listview key={item.id} data={item}  index={item.id} fun={() => dispatch(removeElement(item.id))} />
+                : <Cardview key={item.id} data={item} index={item.id}  fun={() => dispatch(removeElement(item.id))} />
             )}
           </div>
           <Pagination
@@ -41,7 +41,7 @@ export default function MainContent() {
       )}
 
       {feedbackFormDrawer && (
-        <div className="absolute z-20 top-0 bottom-0 -left-[30px] rounded-r-lg w-full h-screen bg-[#e3eaf0] px-[1.5rem] pt-[2.5rem]">
+        <div className="absolute z-20 top-0 bottom-0 -left-[30px] rounded-r-lg w-full h-[100%] bg-[#e3eaf0] px-[1.5rem] pt-[2.5rem]">
           <Feedback />
         </div>
       )}
