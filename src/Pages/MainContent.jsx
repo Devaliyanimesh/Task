@@ -20,7 +20,7 @@ export default function MainContent() {
   } = usePaginatedData(data, 6);
 
   return (
-    <main className={`w-[70%] flex flex-col justify-between gap-6 ${feedbackFormDrawer ? 'relative' : ''}`}>
+    <main className={`w-[70%] pt-[2.5rem] flex flex-col justify-between gap-6 ${feedbackFormDrawer ? 'relative' : ''}`}>
       {viewToggleLoader ? (
         <Loader />
       ) : (
